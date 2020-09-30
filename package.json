@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/OliverMani/vefforritun/issues"
   },
-  "homepage": "https://github.com/OliverMani/vefforritun#readme"
+  "homepage": "https://github.com/OliverMani/vefforritun#readme",
+  "dependencies": {
+    "firebase": "^7.21.0"
+  }
 }
