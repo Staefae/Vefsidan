@@ -67,7 +67,7 @@ function rerenderMenu() {
 	context.className = 'menu';
 
 	let logo = document.createElement('img');
-	logo.src = 'logo.svg';
+	logo.src = '/static/logo.svg';
 	logo.width = 250;
 	logo.height = 50;
 	logo.className = 'logo';

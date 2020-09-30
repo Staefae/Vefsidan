@@ -36,7 +36,7 @@ const server = http.createServer((req, res) => {
 		
 		res.setHeader('Content-Type', 'text/html');
 		res.statusCode = 200;
-		fs.readFile('www/index.html', function(err, data) {
+		fs.readFile('docs/index.html', function(err, data) {
 			if(err == null)
 				res.end(data)
 			else {
@@ -52,7 +52,7 @@ const server = http.createServer((req, res) => {
 			res.setHeader('Content-Type', 'text/plain');
 			res.end('400 bad request!');
 		} else {
-			fs.readFile('www/' + path, function(err, data){
+			fs.readFile('docs/' + path, function(err, data){
 				if(err) {
 					res.statusCode = 404;
 					res.setHeader('Content-Type', 'text/plain');
