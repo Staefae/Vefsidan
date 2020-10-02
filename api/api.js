@@ -47,7 +47,7 @@ const server = http.createServer((req, res) => {
 	} else if(req.url.startsWith('/static/')) {
 		const path = req.url.substring(8);
 		
-		if(path.includes('/')) {
+		if(path.includes('..')) {
 			res.statusCode = 400;
 			res.setHeader('Content-Type', 'text/plain');
 			res.end('400 bad request!');
