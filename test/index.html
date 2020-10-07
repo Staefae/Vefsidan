@@ -3,37 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="../materialize-v1.0.0/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../docs/materialize-v1.0.0/materialize/css/materialize.min.css"  media="screen,projection"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+      $(".dropdown-trigger").dropdown();
+    </script>
     <title>test</title>
 </head>
-<body>
-  <div class = "container row">
-   
-    <div class="nav-wrapper">
-      <ul id="nav-mobile" class="sidenav" style="left: -250px;">
-        <li><div class="user-view">
-          <div class="background">
-            <img src="images/office.jpg">
-          </div>
-          <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-          <a href="#name"><span class="white-text name">John Doe</span></a>
-          <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-        </div></li>
-        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-        <li><a href="#!">Second Link</a></li>
-        <li><div class="divider"></div></li>
-        <li><a class="subheader">Subheader</a></li>
-        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+<body style="background-color: #2c2f33;">
+  
+  
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+  <nav>
+    <div class="nav-wrapper" style="background-color: #23272a;">
+      <a href="#!" class="brand-logo center">Logo</a>
+      <ul class="right">
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
-      <a class="button-collapse" href="#" data-activates="nav-mobile">
-        <i class="material-icons black-text">menu</i>
-      </a>
-    </div>        
+    </div>
+  </nav>
+        
+
+  <div class = "container row">        
     
-    <div class="col l4 card hoverable" style="margin-left: 10px;">
+    <div class="col l4 card hoverable" style="margin-left: 10px; background-color: #7289da;">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="Skýring 2020-04-12 022218.png">
       </div>
@@ -48,7 +50,7 @@
     </div>
 
 
-    <div class="col l4 card hoverable" style="margin-left: 10px;">
+    <div class="col l4 card hoverable" style="margin-left: 10px; background-color: #7289da;">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="Skýring 2020-04-12 022218.png">
       </div>
