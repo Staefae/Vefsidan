@@ -137,7 +137,7 @@ function rerenderMenu() {
 }
 
 (function(){
-	rerenderMenu();
+	document.getElementById('noscript').textContent = '';
 	document.body.appendChild(CONTAINER);
 	loadsite(0);
 
