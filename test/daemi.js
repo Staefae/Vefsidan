@@ -28,25 +28,40 @@ const DATA = [
 
                         // ATH! Vigrar þurfa að koma með
                         render: function(){
-                            let main = document.createElement('div');
-                            main.className = 'math';
-
+                            
+                            let tolur = {
+                                'a':Math.round(Math.random() * 20) - 10,
+                                'b':Math.round(Math.random() * 20) - 10,
+                                'c':Math.round(Math.random() * 20) - 10,
+                                'd':Math.round(Math.random() * 20) - 10
+                            };
 
                             let sample = document.getElementById('sample');
+                            sample.innerHTML = ''; // Hreinsa HTML tag
 
                             
-                            const node = math.parse(this.daemi[0]);
-                            //try{
+                            const node = math.parse(this.daemi[0].replace('a',tolur.a).replace('b',tolur.b).replace('c',tolur.c).replace('d',tolur.d));
+                            try {
                                 const latex = node ? node.toTex({'implicit':'hide', 'parenthesis':'keep'}) : 'No content!';
-                                sample.innerHTML = '$$' + latex + '$$';
+                                sample.innerHTML = '$$' + latex.replace('+-', '-') + '$$';
                                 console.log("LATEX:", latex);
                                 const elem = MathJax.Hub.getAllJax('sample')[0];
                                 console.log("ELEM:",  MathJax.Hub.getAllJax('sample'));
                                 MathJax.Hub.Queue(['Text', elem, latex]);
-                            //} catch(err) {}
+                            } catch (err) {}
+                            let vector = document.createElement('div');
+                            vector.id = 'vector';
+                            sample.appendChild(vector);
+
+                            const vector_latex = '\\begin{pmatrix} ' + tolur.a + '\\\\' + tolur.b + '\\end{pmatrix}';
+                            vector.textContent = '$$' + vector_latex + '$$';
+                            const elem2 = MathJax.Hub.getAllJax('vector')[0];
+                            MathJax.Hub.Queue(['Text', elem2, vector_latex]);
+
+                            
                             
 
-                            return main;
+                            return tolur;
                         }
                     }
                 ]
