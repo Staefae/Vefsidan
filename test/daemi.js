@@ -8,7 +8,7 @@ const DATA = [
                 formulur: [
                     {
                         
-                        daemi: ["f(x) = x^2 + c*x + d"],
+                        daemi: ["f(x) = x^2 + c*x + d", "c/(x+d)", "c/(x^2+d)"],
                         svar: function(svor, scope) {
                             const f = math.evaluate(this.daemi[0], scope);
                             const g = (x) => f(x-scope.a) + scope.b;
@@ -40,7 +40,7 @@ const DATA = [
                             sample.innerHTML = ''; // Hreinsa HTML tag
 
                             
-                            const node = math.parse(this.daemi[0].replace('a',tolur.a).replace('b',tolur.b).replace('c',tolur.c).replace('d',tolur.d));
+                            const node = math.parse(this.daemi[Math.round(Math.random() * (this.daemi.length-1))].replace('a',tolur.a).replace('b',tolur.b).replace('c',tolur.c).replace('d',tolur.d));
                             try {
                                 const latex = node ? node.toTex({'implicit':'hide', 'parenthesis':'keep'}) : 'No content!';
                                 sample.innerHTML = '$$' + latex.replace('+-', '-') + '$$';
@@ -49,6 +49,7 @@ const DATA = [
                                 console.log("ELEM:",  MathJax.Hub.getAllJax('sample'));
                                 MathJax.Hub.Queue(['Text', elem, latex]);
                             } catch (err) {}
+
                             let vector = document.createElement('div');
                             vector.id = 'vector';
                             sample.appendChild(vector);
