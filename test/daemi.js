@@ -8,7 +8,7 @@ const DATA = [
                 formulur: [
                     {
                         
-                        daemi: ["f(x) = x^2 + c*x + d"],
+                        daemi: ["f(x) = x^2 + c*x + d", "f(x) = 1/(x+1)", "f(x) = c/(x^2+d)"],
                         svar: function(svor, scope) {
                             const f = math.evaluate(this.daemi[0], scope);
                             const g = (x) => f(x-scope.a) + scope.b;
@@ -28,6 +28,8 @@ const DATA = [
 
                         // ATH! Vigrar þurfa að koma með
                         render: function(){
+
+                            let nr = 2;//Math.round(Math.random()*(this.daemi.length-1));
                             
                             let tolur = {
                                 'a':Math.round(Math.random() * 20) - 10,
@@ -40,7 +42,7 @@ const DATA = [
                             sample.innerHTML = ''; // Hreinsa HTML tag
 
                             
-                            const node = math.parse(this.daemi[0].replace('a',tolur.a).replace('b',tolur.b).replace('c',tolur.c).replace('d',tolur.d));
+                            const node = math.parse(this.daemi[nr].replace('a',tolur.a).replace('b',tolur.b).replace('c',tolur.c).replace('d',tolur.d));
                             try {
                                 const latex = node ? node.toTex({'implicit':'hide', 'parenthesis':'keep'}) : 'No content!';
                                 sample.innerHTML = '$$' + latex.replace('+-', '-') + '$$';
