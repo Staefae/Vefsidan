@@ -1,43 +1,74 @@
-function generate(formula) {
-    return formula.replace('A', Math.round(Math.random()*10))+('B', Math.round(Math.random()*10))
-}
-
-function reikna(formula, x) {
-    formula = formula.replace('x', x);
-    // Byrja á svigum
-    
-}
-
 const DATA = [
     { 
-        "Bók": "Stæ 3b",
-        "Höfundur": "Gísli Bachmann",
-        "Kaflar": [
+        bok: "Stæ 3b",
+        hofundur: "Gísli Bachmann",
+        kaflar: [
             {
-                "nafn":"Hliðrun falla",
-                "formulur": [
+                nafn:"Hliðrun falla",
+                formulur: [
                     {
-                        "prefix": "f(x) =",
-                        "daemi": ["x^2 + Cx + D", "[A, B]"],
-                        "svar": "Hausverkur"
+                        
+                        daemi: ["f(x) = x^2 + c*x + d"],
+                        svar: function(svor, scope) {
+                            const f = math.evaluate(this.daemi[0], scope);
+                            const g = (x) => f(x-scope.a) + scope.b;
+                            
+                            
+                            const svar = math.evaluate(svor[0], {});
+                            console.log("SVAR:", g(5))
+                            console.log("SVAR 2:", svar(5))
+                            for(let i = 0; i < 100; i++) {
+                                let random = Math.round(Math.random()*1000000);
+                                if(svar(random) != g(random)) {
+                                    return false;
+                                }
+                            }
+                            return true;
+                        },
+
+                        // ATH! Vigrar þurfa að koma með
+                        render: function(){
+                            let main = document.createElement('div');
+                            main.className = 'math';
+
+
+                            let sample = document.getElementById('sample');
+
+                            
+                            const node = math.parse(this.daemi[0]);
+                            //try{
+                                const latex = node ? node.toTex({'implicit':'hide', 'parenthesis':'keep'}) : 'No content!';
+                                sample.innerHTML = '$$' + latex + '$$';
+                                console.log("LATEX:", latex);
+                                const elem = MathJax.Hub.getAllJax('sample')[0];
+                                console.log("ELEM:",  MathJax.Hub.getAllJax('sample'));
+                                MathJax.Hub.Queue(['Text', elem, latex]);
+                            //} catch(err) {}
+                            
+
+                            return main;
+                        }
                     }
                 ]
             }, 
             {
-                "nafn":"Fastapunktar falla",
-                "formulur":[
+                nafn:"Fastapunktar falla",
+                formulur:[
                     {
-                        "prefix":"f(x) =",
-                        "daemi":["x^2 - Ax + B","x"],
-                        "svar": function(svor){
-                            let x1 = svor[0];
-                            let x2 = svor[1];
+                        
+                        daemi:["f(x) = x^2 - a*x + b","x"],
+                        svar: function(svor, scope){ // Svörin frá notendum !!!
+                            const f = math.evaluate(this.daemi[0], scope);
+                            return f(svor[0]) == svor[0] && f(svor[1]) == svor[1];
 
-
-                        }
+                        },
+                        render: function(){}
                     }
                 ]
             }
         ]
     }
 ]
+
+
+
