@@ -75,12 +75,103 @@ const DATA = [
                         svar: function(svor, scope){ // Svörin frá notendum !!!
                             const f = math.evaluate(this.daemi[0], scope);
                             return f(svor[0]) == svor[0] && f(svor[1]) == svor[1];
+<<<<<<< HEAD
+
+                        },
+                        render: function(){}
+=======
 
                         },
                         render: function(){}
                     }
                 ]
-            }
+            },
+            {
+                nafn: "Takmörkunn falla",
+                formulur:[
+                    {
+                        dæmi: [" "],
+                        svar: function(svor, scope){ // Svörin frá notendum !!!
+                            const f = math.evaluate(this.daemi[0], scope);
+                            return f(svor[0]) == svor[0] && f(svor[1]) == svor[1];
+
+                        },
+                        render: function(){}
+                    }
+                ]
+            },
+            {
+                nafn: "Einhallun falla",
+                formulur:[
+                    {
+                        dæmi: [" "],
+                        svar: function(svor, scope){ // Svörin frá notendum !!!
+                            const f = math.evaluate(this.daemi[0], scope);
+                            return f(svor[0]) == svor[0] && f(svor[1]) == svor[1];
+
+                        },
+                        render: function(){}
+                    }
+                ]
+            },
+            {
+                nafn: "Jöfn og Ójöfn föll",
+                formulur:[
+                    {
+                        dæmi: [" "],
+                        svar: function(svor, scope){ // Svörin frá notendum !!!
+                            const f = math.evaluate(this.daemi[0], scope);
+                            return f(svor[0]) == svor[0] && f(svor[1]) == svor[1];
+
+                        },
+                        render: function(){}
+>>>>>>> tumi
+                    }
+                ]
+            },
+            {
+                nafn: "Samhverfir ferlar",
+                formulur:[
+                    {
+                        dæmi: [" "],
+                        svar: function(svor, scope){ // Svörin frá notendum !!!
+                            const f = math.evaluate(this.daemi[0], scope);
+                            return f(svor[0]) == svor[0] && f(svor[1]) == svor[1];
+
+                        },
+                        render: function(){}
+                    }
+                ]
+            },
+            {
+                nafn: "Samsett föll",
+                formulur:[
+                    {
+                        dæmi: [" "],
+                        svar: function(svor, scope){ // Svörin frá notendum !!!
+                            const f = math.evaluate(this.daemi[0], scope);
+                            return f(svor[0]) == svor[0] && f(svor[1]) == svor[1];
+
+                        },
+                        render: function(){}
+                    }
+                ]
+            },
+            {
+                nafn: "Andhverfur falla",
+                formulur:[
+                    {
+                        dæmi: [" "],
+                        svar: function(svor, scope){ // Svörin frá notendum !!!
+                            const f = math.evaluate(this.daemi[0], scope);
+                            return f(svor[0]) == svor[0] && f(svor[1]) == svor[1];
+
+                        },
+                        render: function(){}
+                    }
+                ]
+            },
+
         ]
     }
 ]
