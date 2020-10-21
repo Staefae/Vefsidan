@@ -75,12 +75,6 @@ const DATA = [
                         svar: function(svor, scope){ // Svörin frá notendum !!!
                             const f = math.evaluate(this.daemi[0], scope);
                             return f(svor[0]) == svor[0] && f(svor[1]) == svor[1];
-<<<<<<< HEAD
-
-                        },
-                        render: function(){}
-=======
-
                         },
                         render: function(){}
                     }
@@ -125,7 +119,7 @@ const DATA = [
 
                         },
                         render: function(){}
->>>>>>> tumi
+
                     }
                 ]
             },
