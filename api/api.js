@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const _data = require('./data');
 
 const port = 8080;
 const hostname = '0.0.0.0';
@@ -22,12 +23,46 @@ function getAPI(path) {
 	let list = path.split('/');
 	console.log("LIST:",list);
 
-	// ====> HÉR VERÐUR KANNSKI MONGODB TENGING <====
-	if(list[0] == "books") {
-		obj.books = ["Bók 1"];
+	if(list[0] == 'index') {
+		if(list.length == 1) {
+			obj.index = [];
+			for(let i = 0; i < _data.data.length; i++) {
+				obj.index.push({kafli: _data.data[i].nafn, nr:i, lysing: _data.data[i].lysing || '(null)'})
+			}
+		} else {
+			try {
+				let nr = list[1];
+				obj.kaflar = _data.data[nr].formulur;
+			} catch(err) {
+				obj = {};
+			}
+		}
+		
+	} else {
+
 	}
+	
 
 	return JSON.stringify(obj);
+}
+
+function scripting(url){
+	try {
+		let split = url.split('/');
+		if(split.length == 3) {
+			if(split[2] == 'render') {
+				return _data.data[split[0]].formulur[split[1]].render.toString().replace('\n','').replace('\t','').replace('\r','');
+			} else if (split[2] == 'svar') {
+				return _data.data[split[0]].formulur[split[1]].svar.toString().replace('\n','').replace('\t','').replace('\r','');
+			}
+		} else {
+			return "";
+		}
+	} catch(err) {
+
+		return "";
+	}
+	return "";
 }
 
 // Basic Web Server
@@ -76,7 +111,13 @@ const server = http.createServer((req, res) => {
 		res.statusCode = 200;
 		res.setHeader('Content-Type', 'application/json');
 		res.end(getAPI(req.url.substring(5)));
+	} else if(req.url.startsWith('/scripting/')) {
+		res.statusCode = 200;
+		res.setHeader('Content-Type', 'application/javascript');
+		res.end(scripting(req.url.substring(11)));
 	} else {
+		//let path = req.url.path.split('/');
+		
 		res.statusCode = 404;
 		res.setHeader('Content-Type', 'text/plain');
 		res.end("404 not found!");
