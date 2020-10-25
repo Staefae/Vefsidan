@@ -1,5 +1,6 @@
 const CONTAINER = document.createElement('div');
 CONTAINER.className = 'container row';
+CONTAINER.id = 'content';
 
 const SITES = {
 	forsida: '',
@@ -11,7 +12,7 @@ const SITES = {
 };
 
 const GENERATORS = {
-	bok: function(nafn, mynd, lysing){
+	bok: function(nafn, mynd, lysing, link){
 		let content = document.createElement('div');
 		content.className = "col l4 card hoverable";
 		content.style.marginLeft = "10px";
@@ -43,102 +44,56 @@ const GENERATORS = {
 		let span = document.createElement('span');
 		span.className = "card-title grey-text text-darken-4";
 		span.innerHTML = nafn + '<i class="material-icons right">close</i>';
+		let ccontent = document.createElement('div');
 		let p = document.createElement('p');
+		let button = document.createElement('a');
+		button.href = link;
+		button.className = 'waves-effect waves-light btn';
+		button.textContent = 'Reikna';
+		
 		p.textContent = lysing;
+		ccontent.appendChild(p);
+		ccontent.appendChild(button);
 		reveal.appendChild(span);
-		reveal.appendChild(p);
+		reveal.appendChild(ccontent);
 		content.appendChild(reveal);
 		return content;
 	},
 	
 };
 
-function clear() {
-	CONTAINER.innerHTML = '';
-}
 
 
 
 
-function forsida() {
+async function forsida() {
+	let data;
+	const container = document.createElement('div');
 
-	/*let title = document.createElement('h1');
-	title.textContent = 'Hello world';
-	title.id = 'titill';
-	CONTAINER.appendChild(title);*/
+	let checked = [0]
 
-	for(let i = 0; i < 10; i++) {
-		let bok = GENERATORS.bok('Bók ' + i, '/static/test.png', 'Þetta er með efnið úr bók númer 1, í stærðfræði :)');
+	for(let i = 0; i < DATA.length; i++) {
+
+		let bok = GENERATORS.bok(DATA[i].nafn, i in checked ? '/static/checkmark_test.svg' : '/static/test.png', DATA[i].lysing, '/reikna/' + i);
 	
-		CONTAINER.appendChild(bok);
+		container.appendChild(bok);
 	}
 	
-}
+	CONTAINER.appendChild(container);
 
-function kaflar() {
-	clear();
-}
 
-// Stærðfræðidæmin
-function adalsidan() {
-	clear();
-}
-
-function check() {
-	clear();
-}
-
-function svar() {
-	clear();
-}
-
-function tilkynna(){
-	clear();
-}
-
-function loadsite(site) {
 	
-	switch(site) {
-		case 0:
-			forsida();
-			break
-		case 1:
-			kaflar();
-			break;
-		case 2:
-			adalsidan();
-			break;
-		case 3:
-			check();
-			break;
-		case 4:
-			svar();
-			break;
-		case 5:
-			tilkynna();
-			break;
-
-	}
 }
 
-function rerenderMenu() {
-	document.body.innerHTML = '';
-	let context = document.createElement('div');
-	context.className = 'menu';
+function daemi(){
 
-	let logo = document.createElement('img');
-	logo.src = '/static/logo.svg';
-	logo.width = 250;
-	logo.height = 50;
-	logo.className = 'logo';
-
-	context.appendChild(logo);
-	document.body.appendChild(context);
 }
+
 
 (function(){
 	document.getElementById('noscript').textContent = '';
-	document.body.appendChild(CONTAINER);
-	loadsite(0);
+	
+	document.body.appendChild(CONTAINER);;
 
+	forsida();
 })();
