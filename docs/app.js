@@ -44,10 +44,18 @@ const GENERATORS = {
 		let span = document.createElement('span');
 		span.className = "card-title grey-text text-darken-4";
 		span.innerHTML = nafn + '<i class="material-icons right">close</i>';
+		let ccontent = document.createElement('div');
 		let p = document.createElement('p');
+		let button = document.createElement('a');
+		button.href = link;
+		button.className = 'waves-effect waves-light btn';
+		button.textContent = 'Reikna';
+		
 		p.textContent = lysing;
+		ccontent.appendChild(p);
+		ccontent.appendChild(button);
 		reveal.appendChild(span);
-		reveal.appendChild(p);
+		reveal.appendChild(ccontent);
 		content.appendChild(reveal);
 		return content;
 	},
@@ -62,14 +70,11 @@ async function forsida() {
 	let data;
 	const container = document.createElement('div');
 
+	let checked = [0]
 
-	let response = await fetch('/api/index');
-	data = await response.json();
+	for(let i = 0; i < DATA.length; i++) {
 
-
-	for(let i = 0; i < data.index.length; i++) {
-
-		let bok = GENERATORS.bok(data.index[i].kafli, '/static/test.png', data.index[i].lysing, '');
+		let bok = GENERATORS.bok(DATA[i].nafn, i in checked ? '/static/checkmark_test.svg' : '/static/test.png', DATA[i].lysing, '/reikna/' + i);
 	
 		container.appendChild(bok);
 	}
