@@ -83,8 +83,62 @@ const DATA = [
                     button.addEventListener('click', () => {
                         let svar = __svar([input.value], tolur, __this);
                         if(svar) {
+                            let contnet = document.createElement('div');
+                            contnet.className = "modal";
+                            contnet.style.margin = "10px";
+
+                            let modalContnet = document.createElement('div');
+                            modalContnet.className = "modal-content";
+
+                            let header = document.createElement('h4');
+                            header.textContent = "Rétt";
+
+                            let paragraf = document.createElement('p');
+                            paragraf.textContent = "Þú reikanaðir út rétt svar"
+
+                            modalContnet.appendChild(paragraf);
+                            modalContnet.appendChild(header);
+
+                            let modalFooter = document.createElement('div');
+                            modalFooter.className = "modal-footer";
+
+                            let b = document.createElement('a');
+                            b.className = "modal-close waves-effect waves-green btn-flat";
+                            b.textContent = "Agree"
+
+                            modalFooter.appendChild(b);
+                            contnet.appendChild(modalFooter);
+                            contnet.appendChild(modalContnet);
+
                             console.log("Rétt!");
                         } else {
+                            let contnet = document.createElement('div');
+                            contnet.className = "modal";
+                            contnet.style.margin = "10px";
+
+                            let modalContnet = document.createElement('div');
+                            modalContnet.className = "modal-content";
+
+                            let header = document.createElement('h4');
+                            header.textContent = "Rangt";
+
+                            let paragraf = document.createElement('p');
+                            paragraf.textContent = "Þú reikanaðir út Rangt svar"
+
+                            modalContnet.appendChild(paragraf);
+                            modalContnet.appendChild(header);
+
+                            let modalFooter = document.createElement('div');
+                            modalFooter.className = "modal-footer";
+
+                            let b = document.createElement('a');
+                            b.className = "modal-close waves-effect waves-green btn-flat";
+                            b.textContent = "Agree"
+
+                            modalFooter.appendChild(b);
+                            contnet.appendChild(modalFooter);
+                            contnet.appendChild(modalContnet);
+
                             console.log("Rangt!");
                         }
                     });
