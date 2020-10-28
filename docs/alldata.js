@@ -45,7 +45,6 @@ const DATA = [
                     const node = math.parse(this.daemi[select].replace('a',tolur.a).replace('b',tolur.b).replace('c',tolur.c).replace('d',tolur.d));
                     try {
                         const latex = node ? node.toTex({'implicit':'hide', 'parenthesis':'keep'}) : 'No content!';
-<<<<<<< HEAD
                         sample.innerHTML = '$$' + latex.replace('+-', '-').replace('\\cdot x', ' x') + '$$';
                         console.log("LATEX:", latex);
                         const elem = MathJax.Hub.getAllJax('sample')[0];
@@ -54,14 +53,7 @@ const DATA = [
                     } catch (err) {
                          console.log(err);
                     }
-=======
-                        sample.innerHTML = '$$' + latex.replace('+-', '-') + '$$';
-                        console.log("LATEX:", latex);
-                        const elem = MathJax.Hub.getAllJax('sample')[0];
-                        console.log("ELEM:",  MathJax.Hub.getAllJax('sample'));
-                        MathJax.Hub.Queue(['Text', elem, latex]);
-                    } catch (err) {}
->>>>>>> d657be13129778a78dd80bf539f7cdd1c4081bd5
+            
 
                     try {
                         let vector = document.createElement('div');
@@ -70,21 +62,12 @@ const DATA = [
 
                         const vector_latex = '\\begin{pmatrix} ' + tolur.a + '\\\\' + tolur.b + '\\end{pmatrix}';
                         vector.textContent = '$$' + vector_latex + '$$';
-<<<<<<< HEAD
-                        const elem2 = vector;
                         
                         MathJax.Hub.Queue(['Typeset', MathJax.Hub, vector]);
                        
                     } catch (err) {
                         console.log(err);
                     }
-=======
-                        const elem2 = MathJax.Hub.getAllJax('vector')[0];
-                        
-                        MathJax.Hub.Queue(['Text', elem2, vector_latex]);
-                       
-                    } catch (err) {}
->>>>>>> d657be13129778a78dd80bf539f7cdd1c4081bd5
 
                     let inputdiv = document.createElement('div');
                     inputdiv.className = 'input-field row';
@@ -104,10 +87,6 @@ const DATA = [
                     button.addEventListener('click', () => {
                         let svar = __svar([input.value], tolur, __this);
                         if(svar) {
-<<<<<<< HEAD
-                            console.log("Rétt!");
-                        } else {
-=======
                             let contnet = document.createElement('div');
                             contnet.className = "modal";
                             contnet.style.margin = "10px";
@@ -164,7 +143,6 @@ const DATA = [
                             contnet.appendChild(modalFooter);
                             contnet.appendChild(modalContnet);
 
->>>>>>> d657be13129778a78dd80bf539f7cdd1c4081bd5
                             console.log("Rangt!");
                         }
                     });
