@@ -8,7 +8,7 @@ const DATA = [
                 formulur: [
                     {
                         
-                        daemi: ["f(x) = x^2 + c*x + d", "c/(x+d)", "c/(x^2+d)"],
+                        daemi: ["f(x) = x^2 + c*x + d", "f(x) = c/(x+d)", "f(x) = c/(x^2+d)"],
                         svar: function(svor, scope) {
                             const f = math.evaluate(this.daemi[0], scope);
                             const g = (x) => f(x-scope.a) + scope.b;
