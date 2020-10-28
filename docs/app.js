@@ -47,7 +47,23 @@ const GENERATORS = {
 		let ccontent = document.createElement('div');
 		let p = document.createElement('p');
 		let button = document.createElement('a');
-		button.href = link;
+		button.addEventListener('click',function(){
+			document.getElementById('noscript').textContent = '';
+			const FORMULUR = DATA[0].formulur;
+			
+			CONTAINER.innerHTML = '';
+			let sample = document.createElement('div');
+			sample.id = 'sample';
+			sample.className = 'math';
+			CONTAINER.appendChild(sample);
+
+			console.log("Link:", link);
+			
+
+			FORMULUR[link].render();
+			
+			
+		});
 		button.className = 'waves-effect waves-light btn';
 		button.textContent = 'Reikna';
 		
@@ -74,7 +90,7 @@ async function forsida() {
 
 	for(let i = 0; i < DATA.length; i++) {
 
-		let bok = GENERATORS.bok(DATA[i].nafn, i in checked ? '/static/checkmark_test.svg' : '/static/test.png', DATA[i].lysing, '/reikna/' + i);
+		let bok = GENERATORS.bok(DATA[i].nafn, i in checked ? 'checkmark_test.svg' : 'test.png', DATA[i].lysing, i);
 	
 		container.appendChild(bok);
 	}
