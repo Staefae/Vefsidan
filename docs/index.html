@@ -5,37 +5,40 @@
 	<title>Welcome!</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="/static/main.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
 	<script src="https://unpkg.com/vue@next"></script>
-    <link type="text/css" rel="stylesheet" href="/static/materialize-v1.0.0/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="materialize-v1.0.0/materialize/css/materialize.min.css"  media="screen,projection"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.5.1/math.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML.js"></script>
 </head>
 <body>
 	<nav>
 	    <div class="nav-wrapper" style="background-color: #23272a;">
-	    	<a href="/" class="brand-logo center"><img style="width: 60%;" src="/static/logo.svg"></a>
+	    	<a href="/" class="brand-logo center"><div style="height:100%;margin-top: .1em;"><img  height="50" width="50" src="logo.png"></div></a>
 	    	<ul class="right">
 	        <!-- Dropdown Trigger -->
-	        	<li><a class="dropdown-trigger" href="#" data-target="dropdown1">Git<i class="material-icons right">arrow_drop_down</i></a></li>
+	        	<li><a class="dropdown-trigger" href="#" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
 	     	</ul>
 	     	<!-- Dropdown Structure -->
 			<ul id="dropdown1" class="dropdown-content">
-				<li><a href="https://github.com/Staefae/Vefsidan/wiki">git wiki</a></li>
-    			<li class="divider"></li>
-    			<li><a href="https://github.com/Staefae/Vefsidan">git repo</a></li>
-    			<li><a href="https://github.com/Staefae">git org</a></li>
+				<li><a href="#!">one</a></li>
+				<li><a href="#!">two</a></li>
+				<li class="divider"></li>
+				<li><a href="#!">three</a></li>
 			</ul>
 		</div>
 	</nav>
 
+	
+
 	<h1 id="noscript">PLEASE ENABLE JAVASCRIPT TO CONTINUE!</h1>
 
-	<script type="text/javascript" src="/alldata.js"></script>
-	<script type="text/javascript" src="/static/app.js"></script>
+	<script type="text/javascript" src="alldata.js"></script>
+	<script type="text/javascript" src="app.js"></script>
 
 	<script>
     	$('.dropdown-trigger').dropdown();
