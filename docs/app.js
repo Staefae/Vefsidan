@@ -51,7 +51,7 @@ const GENERATORS = {
 			document.getElementById('noscript').textContent = '';
 			const FORMULUR = DATA[0].formulur;
 			
-			CONTAINER.innerHTML = '';
+			document.getElementById('val').remove();
 			let sample = document.createElement('div');
 			sample.id = 'sample';
 			sample.className = 'math';
@@ -85,6 +85,7 @@ const GENERATORS = {
 async function forsida() {
 	let data;
 	const container = document.createElement('div');
+	container.id = 'val';
 
 	let checked = [0]
 
@@ -97,7 +98,49 @@ async function forsida() {
 	
 	CONTAINER.appendChild(container);
 
+	let contnet = document.createElement('div');
+    contnet.className = "modal";
+    contnet.style.margin = "10px";
+    contnet.id = 'svar';
+    contnet.style.zIndex = "999";
 
+
+    let modalContnet = document.createElement('div');
+    modalContnet.className = "modal-content";
+
+    let header = document.createElement('h4');
+    header.id = 'svar_title';
+    header.textContent = "Rétt";
+
+    let paragraf = document.createElement('p');
+    paragraf.id = 'svar_lysing';
+    paragraf.textContent = "Þú reikanaðir út rétt svar"
+
+    modalContnet.appendChild(paragraf);
+    modalContnet.appendChild(header);
+
+    let modalFooter = document.createElement('div');
+    modalFooter.className = "modal-footer";
+
+    let b = document.createElement('a');
+    b.className = "modal-close waves-effect waves-green btn-flat";
+    b.textContent = "Loka"
+
+    modalFooter.appendChild(b);
+    contnet.appendChild(modalFooter);
+    contnet.appendChild(modalContnet);
+
+    contnet.style.position = 'fixed';
+    contnet.style.textAlign = 'center';
+    contnet.style.left = "22%";
+
+    b.addEventListener('click', function(){
+    	contnet.style.display = "none";
+    })
+
+    CONTAINER.appendChild(contnet);
+
+    console.log("SVÖR:", contnet);
 	
 }
 

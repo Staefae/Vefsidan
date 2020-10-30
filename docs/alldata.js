@@ -27,6 +27,7 @@ const DATA = [
 
                 // ATH! Vigrar þurfa að koma með
                 render: function (){
+
                     let sample = document.getElementById('sample');
                     let select = Math.round(Math.random() * (this.daemi.length-1));
                     
@@ -40,6 +41,8 @@ const DATA = [
 
                   
                     sample.innerHTML = '';
+
+                    console.log("SAMPLE", sample);
 
                     
                     const node = math.parse(this.daemi[select].replace('a',tolur.a).replace('b',tolur.b).replace('c',tolur.c).replace('d',tolur.d));
@@ -86,63 +89,15 @@ const DATA = [
                     let __this = this;
                     button.addEventListener('click', () => {
                         let svar = __svar([input.value], tolur, __this);
+                        document.getElementById('svar').style.display = "block";
                         if(svar) {
-                            let contnet = document.createElement('div');
-                            contnet.className = "modal";
-                            contnet.style.margin = "10px";
-
-                            let modalContnet = document.createElement('div');
-                            modalContnet.className = "modal-content";
-
-                            let header = document.createElement('h4');
-                            header.textContent = "Rétt";
-
-                            let paragraf = document.createElement('p');
-                            paragraf.textContent = "Þú reikanaðir út rétt svar"
-
-                            modalContnet.appendChild(paragraf);
-                            modalContnet.appendChild(header);
-
-                            let modalFooter = document.createElement('div');
-                            modalFooter.className = "modal-footer";
-
-                            let b = document.createElement('a');
-                            b.className = "modal-close waves-effect waves-green btn-flat";
-                            b.textContent = "Agree"
-
-                            modalFooter.appendChild(b);
-                            contnet.appendChild(modalFooter);
-                            contnet.appendChild(modalContnet);
-
+                            
+                            document.getElementById('svar_title').textContent = 'Rétt!';
+                            document.getElementById('svar_lysing').textContent = 'Þú reikanaðir út rétt svar!';
                             console.log("Rétt!");
                         } else {
-                            let contnet = document.createElement('div');
-                            contnet.className = "modal";
-                            contnet.style.margin = "10px";
-
-                            let modalContnet = document.createElement('div');
-                            modalContnet.className = "modal-content";
-
-                            let header = document.createElement('h4');
-                            header.textContent = "Rangt";
-
-                            let paragraf = document.createElement('p');
-                            paragraf.textContent = "Þú reikanaðir út Rangt svar"
-
-                            modalContnet.appendChild(paragraf);
-                            modalContnet.appendChild(header);
-
-                            let modalFooter = document.createElement('div');
-                            modalFooter.className = "modal-footer";
-
-                            let b = document.createElement('a');
-                            b.className = "modal-close waves-effect waves-green btn-flat";
-                            b.textContent = "Agree"
-
-                            modalFooter.appendChild(b);
-                            contnet.appendChild(modalFooter);
-                            contnet.appendChild(modalContnet);
-
+                            document.getElementById('svar_title').textContent = 'Rangt!';
+                            document.getElementById('svar_lysing').textContent = 'Þú reikanaðir út rangt svar!';
                             console.log("Rangt!");
                         }
                     });
