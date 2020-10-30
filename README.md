@@ -1,4 +1,6 @@
 # Vefforritun 4 - Stærðfræði vefsíða
+## Linkur á vefsíðu:
+https://staefae.github.io/Vefsidan
 
 ## Verkefnalýsing
 Þessi vefsíða verður vefsíða sem býr til stærðfræðidæmi fyrir mann til að leysa sjálfur.
