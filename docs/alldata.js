@@ -103,7 +103,21 @@ const DATA = [
                     });
                     button.href = '#';
                     inputdiv.appendChild(button);
+
+                    // TÍMABUNDIN LAUSN...
+                    let in_latex = document.createElement('div');
+
+                    in_latex.className = 'show_how_it_looks_like';
+                    input.addEventListener('input', function(){
+                        try{
+                            const node = math.parse(input.value);
+                            console.log("INPUT:", input.value, "node:", node);
+                            in_latex.textContent = '$$Þitt \\ svar: ' + (node ? node.toTex({'implicit':'hide', 'parenthesis':'keep'}) : '') + '$$';
+                            MathJax.Hub.Queue(['Typeset', MathJax.Hub, in_latex]);
+                        } catch(err){}
+                    });
                     
+                    sample.appendChild(in_latex);
                     
 
                     return tolur;
