@@ -107,7 +107,7 @@ const DATA = [
                     // TÍMABUNDIN LAUSN...
                     let in_latex = document.createElement('div');
 
-                    in_latex.className = 'show_how_it_looks_like';
+                    in_latex.className = 'show_me_all_the_bits_hehehehehehehehehe';
                     input.addEventListener('input', function(){
                         try{
                             const node = math.parse(input.value);
