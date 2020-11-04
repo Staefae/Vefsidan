@@ -100,7 +100,6 @@ async function forsida() {
 
 	let contnet = document.createElement('div');
     contnet.className = "modal";
-    contnet.style.margin = "10px";
     contnet.id = 'svar';
     contnet.style.zIndex = "999";
 
@@ -132,11 +131,11 @@ async function forsida() {
 
     contnet.style.position = 'fixed';
     contnet.style.textAlign = 'center';
-    contnet.style.left = "22%";
+    
 
     b.addEventListener('click', function(){
     	contnet.style.display = "none";
-    })
+    });
 
     CONTAINER.appendChild(contnet);
 

@@ -28,6 +28,8 @@ const DATA = [
                 // ATH! Vigrar þurfa að koma með
                 render: function (){
 
+                    let MQ = MathQuill.getInterface(2);
+
                     let sample = document.getElementById('sample');
                     let select = Math.round(Math.random() * (this.daemi.length-1));
                     
@@ -73,22 +75,42 @@ const DATA = [
                     }
 
                     let inputdiv = document.createElement('div');
+
+
                     inputdiv.className = 'input-field row';
 
-                    let input = document.createElement('input');
+                    let input = document.createElement('div');
+                    input.className = 'active valitade col s9';
+
+                    inputdiv.appendChild(input);
+                    let field = MQ.MathField(input, {});
+
+                    /*let input = document.createElement('input');
                     input.className = 'active valitade col s9';
                     input.id = '_inp';
                     inputdiv.appendChild(input);
                     sample.appendChild(inputdiv);
-                    inputdiv.style.marginTop = '5em';
+                    inputdiv.style.marginTop = '5em';*/
+
+                    sample.appendChild(inputdiv);
+
 
                     let button = document.createElement('a');
                     button.className = 'btn col s3';
                     button.textContent = 'Svara';
                     let __svar = this.svar;
                     let __this = this;
+
+                    inputdiv.style.fontSize = '2em';
+                    button.style.height = '3em';
+
                     button.addEventListener('click', () => {
-                        let svar = __svar([input.value], tolur, __this);
+                        console.log("FIELD:", field);
+                        let __latex = latex_to_text(field.latex());
+                        console.log("FROM LATEX:", __latex);
+                        let svar = __svar([__latex], tolur, __this);
+                       
+                        
                         document.getElementById('svar').style.display = "block";
                         if(svar) {
                             
@@ -105,7 +127,7 @@ const DATA = [
                     inputdiv.appendChild(button);
 
                     // TÍMABUNDIN LAUSN...
-                    let in_latex = document.createElement('div');
+                    /*let in_latex = document.createElement('div');
 
                     in_latex.className = 'show_me_all_the_bits_hehehehehehehehehe';
                     input.addEventListener('input', function(){
@@ -117,7 +139,7 @@ const DATA = [
                         } catch(err){}
                     });
                     
-                    sample.appendChild(in_latex);
+                    sample.appendChild(in_latex);*/
                     
 
                     return tolur;
