@@ -65,9 +65,12 @@ function convert_part(action, data) {
 
 // Við þurfum að breyta LaTeX í texta til að nota í mathjs
 function latex_to_text(latex) {
-	let _latex = latex.replace('\\left', '').replace('\\right', '').replace('\\cdot','cdot').replace('cdot', '*');
+	let _latex = latex.replace('\\left', '');
+	_latex = _latex.replace('\\right', '')
+	_latex = _latex.replace('\\cdot','cdot')
+	_latex = _latex.replace('cdot', '*');
 	let res = '';
-	console.log("START LATEX:", _latex);
+	console.log("START LATEX:", _latex, "has left:", _latex.includes('\\left'), "remove:", _latex.replace('\\left', ''));
 	
 	let action = '';
 	for(let i = 0; i < _latex.length; i++) {

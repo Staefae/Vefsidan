@@ -20,3 +20,15 @@ body {
 	margin: 3px;
 	margin-bottom: -3px;
 }
+
+.kbkey {
+	background: black;
+	color: white;
+	border: 1px solid white;
+	text-align: center;
+	cursor: pointer;
+}
+
+.kbkey:hover {
+	background: purple;
+}

@@ -113,7 +113,6 @@ const DATA = [
                         
                         document.getElementById('svar').style.display = "block";
                         if(svar) {
-                            
                             document.getElementById('svar_title').textContent = 'Rétt!';
                             document.getElementById('svar_lysing').textContent = 'Þú reikanaðir út rétt svar!';
                             console.log("Rétt!");
@@ -126,21 +125,8 @@ const DATA = [
                     button.href = '#';
                     inputdiv.appendChild(button);
 
-                    // TÍMABUNDIN LAUSN...
-                    /*let in_latex = document.createElement('div');
-
-                    in_latex.className = 'show_me_all_the_bits_hehehehehehehehehe';
-                    input.addEventListener('input', function(){
-                        try{
-                            const node = math.parse(input.value);
-                            console.log("INPUT:", input.value, "node:", node);
-                            in_latex.textContent = '$$Þitt \\ svar: ' + (node ? node.toTex({'implicit':'hide', 'parenthesis':'keep'}) : '') + '$$';
-                            MathJax.Hub.Queue(['Typeset', MathJax.Hub, in_latex]);
-                        } catch(err){}
-                    });
-                    
-                    sample.appendChild(in_latex);*/
-                    
+                    let keyboard = get_keyboard(['^', 'sqrt', '(', ')', '1', '2', '3', '+', '4', '5', '6', '-', '7', '8', '9', '*  ', 'x', '0', '<-', '/'], 4, field);
+                    document.getElementById('content').appendChild(keyboard);
 
                     return tolur;
                 }
