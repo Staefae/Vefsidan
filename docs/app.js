@@ -166,5 +166,5 @@ for(let i = 0; i <logotext.length; i++){
 }
 
 if (width < 2000){
-	print('width')
+	console.log('width')
 }
