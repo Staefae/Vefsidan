@@ -155,3 +155,16 @@ function daemi(){
 
 	forsida();
 })();
+
+const logotext = document.querySelectorAll("#logotext path");
+let cssbody = document.querySelector("body");
+let width = cssbody.offsetWidth;
+let hight = cssbody.offsetHeight;
+
+for(let i = 0; i <logotext.length; i++){
+	console.log(`Letter ${i} is ${logotext[i].getTotalLength()}`);
+}
+
+if (width < 2000){
+	print('width')
+}
