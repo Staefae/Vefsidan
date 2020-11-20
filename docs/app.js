@@ -157,14 +157,15 @@ function daemi(){
 })();
 
 const logotext = document.querySelectorAll("#logotext path");
-let cssbody = document.querySelector("body");
-let width = cssbody.offsetWidth;
-let hight = cssbody.offsetHeight;
+const cssbody = document.querySelector("body");
+const width = cssbody.offsetWidth;
+const hight = cssbody.offsetHeight;
 
 for(let i = 0; i <logotext.length; i++){
 	console.log(`Letter ${i} is ${logotext[i].getTotalLength()}`);
 }
 
-if (width < 2000){
-	console.log('width')
+if (width < 500){
+	logotext.style.visibility = 'hidden';
+	logotext.style.display = 'none'
 }

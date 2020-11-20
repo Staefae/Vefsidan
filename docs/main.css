@@ -91,3 +91,100 @@ body {
 		fill: red;
 	}
 }
+
+@media screen and (max-width: 500px){
+	body {
+		margin: 0;
+	}
+	
+	.menu {
+	
+		width: 100%;
+		top: 0;
+		position: fixed;
+		background-color: white;
+		border-bottom: 1px solid #333;
+	}
+	
+	.container {
+		margin-top: 3em;
+	}
+	
+	.logo {
+		padding: 0;
+		margin: 3px;
+		margin-bottom: -3px;
+	}
+	
+	.kbkey {
+		background: black;
+		color: white;
+		border: 1px solid white;
+		text-align: center;
+		cursor: pointer;
+	}
+	
+	.kbkey:hover {
+		background: purple;
+	}
+	
+	#logotext{
+		position: fixed;
+		margin-left: 80px;
+		top: 10px;
+		animation: fill 0.5s ease forwards 3.5s;
+		display: none;
+	}
+		
+	#logotext path:nth-child(1){  /*ekki viss hvað þetta path gerir en ef það er ekki þá virka eingin path*/
+		stroke-dasharray: 105.21699523925781px;
+		stroke-dashoffset: 115.21699523925781px;
+	}
+	#logotext path:nth-child(2){  /*t*/
+		stroke-dasharray: 105.21699523925781px;
+		stroke-dashoffset: 105px;
+		animation: line-anim 2s ease forwards;
+	}
+	#logotext path:nth-child(3){	/*æ*/
+		stroke-dasharray: 192.65927124023438px;
+		stroke-dashoffset: 193px;
+		animation: line-anim 2s ease forwards 0.4s;
+	}
+	#logotext path:nth-child(4){	/*f*/
+		stroke-dasharray: 119.65927124023438px;
+		stroke-dashoffset: 120px;
+		animation: line-anim 2s ease forwards 0.7s;
+	}
+	#logotext path:nth-child(5){	/*æ*/
+		stroke-dasharray: 192.21699523925781px;
+		stroke-dashoffset: 193px;
+		animation: line-anim 2s ease forwards 1;
+	}
+	#logotext path:nth-child(6){	/*ekki viss hvað þetta path gerir en ef það er ekki þá virka eingin path*/
+		stroke-dasharray: 193.91213989257812px;
+		stroke-dashoffset: 193.91213989257812px;
+	}
+	#logotext path:nth-child(7){	/*ekki viss hvað þetta path gerir en ef það er ekki þá virka eingin path*/
+		stroke-dasharray: 192.65927124023438px;
+		stroke-dashoffset: 193.65927124023438px;
+	}
+	#logotext path:nth-child(8){	/*ekki viss hvað þetta path gerir en ef það er ekki þá virka eingin path*/
+		stroke-dasharray: 193.91036987304688px;
+		stroke-dashoffset: 193.91036987304688px;
+	}
+
+	@keyframes line-anim{
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
+
+	@keyframes fill{
+		from{
+			fill: transparent;
+		}
+		to{
+			fill: red;
+		}
+	}
+}
