@@ -12,7 +12,7 @@ const SITES = {
 };
 
 const GENERATORS = {
-	bok: function(nafn, mynd, lysing, link){
+	bok: function(nafn, mynd, lysing, link, i){
 		let content = document.createElement('div');
 		content.className = "col l4 card hoverable";
 		content.style.marginLeft = "10px";
@@ -49,18 +49,22 @@ const GENERATORS = {
 		let button = document.createElement('a');
 		button.addEventListener('click',function(){
 			document.getElementById('noscript').textContent = '';
-			const FORMULUR = DATA[0].formulur;
-			
-			document.getElementById('val').remove();
-			let sample = document.createElement('div');
-			sample.id = 'sample';
-			sample.className = 'math';
-			CONTAINER.appendChild(sample);
+			const portal = LIST[i].skra;
+			add_script('data/' + link + '.js', function(){
+				document.getElementById('val').remove();
+				let sample = document.createElement('div');
+				sample.id = 'sample';
+				sample.className = 'math';
+				CONTAINER.appendChild(sample);
 
-			console.log("Link:", link);
-			
+				console.log("Link:", link);
+				
 
-			FORMULUR[link].render();
+				const formula = new Formula();
+				formula.render();
+			});
+			
+			
 			
 			
 		});
@@ -78,6 +82,13 @@ const GENERATORS = {
 	
 };
 
+function add_script(src, callback) {
+	const script = document.createElement('script');
+	script.src = src;
+	script.onload = callback;
+	document.head.appendChild(script);
+}
+
 
 
 
@@ -89,9 +100,9 @@ async function forsida() {
 
 	let checked = [0]
 
-	for(let i = 0; i < DATA.length; i++) {
+	for(let i = 0; i < LIST.length; i++) {
 
-		let bok = GENERATORS.bok(DATA[i].nafn, i in checked ? 'checkmark_test.svg' : 'test.png', DATA[i].lysing, i);
+		let bok = GENERATORS.bok(LIST[i].nafn, i in checked ? 'checkmark_test.svg' : 'test.png', undefined, LIST[i].skra, i);
 	
 		container.appendChild(bok);
 	}
