@@ -166,3 +166,17 @@ function daemi(){
 
 	forsida();
 })();
+
+const logotext = document.querySelectorAll("#logotext path");
+const cssbody = document.querySelector("body");
+const width = cssbody.offsetWidth;
+const hight = cssbody.offsetHeight;
+
+for(let i = 0; i <logotext.length; i++){
+	console.log(`Letter ${i} is ${logotext[i].getTotalLength()}`);
+}
+
+if (width < 500){
+	logotext.style.visibility = 'hidden';
+	logotext.style.display = 'none'
+}
