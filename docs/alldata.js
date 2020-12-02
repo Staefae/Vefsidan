@@ -1,1 +1,1 @@
-const LIST = [{'nafn':'Hliðrun falla', 'skra':'hlidrun'},{'nafn':'Einföld stærfræði', 'skra':'simple'}]
+const LIST = [{'nafn':'Hliðrun falla', 'skra':'hlidrun'},{'nafn':'Einföld stærðfræði', 'skra':'simple'},{'nafn':'Jöfnur', 'skra':'jofnur'}]
