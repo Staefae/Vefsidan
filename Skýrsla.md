@@ -12,8 +12,8 @@ Vefsíðan er bara með eina síðu tæknilega séð, og þessi síða byggir a�
 
 ## Libraries
 Library'in sem við notuðum í verkefninu eru:
-	1. **[Materialize](https://materializecss.com/)**, fyrir útlitið 
-	2. **[jQuery](https://jquery.com/download/)** (Materialize notar jQuery í javascript kóðanum sínum svo við þurftum að setja inn jQuery inn)
-	3. **[MathJax](https://www.mathjax.org/)**, til að sýna dæmin
-	4. **[MathJS](https://mathjs.org/)**, til að reikna öll dæmi alveg rétt, og breyta dæmum í LaTeX streng (fyrir rendering)
-	5. **[MathQuill](http://mathquill.com/)**, fyrir input, en við vildum gera HTML input sem gæti sett textann upp eins og við séum að skrifa á blaði
+1. **[Materialize](https://materializecss.com/)**, fyrir útlitið 
+2. **[jQuery](https://jquery.com/download/)** (Materialize notar jQuery í javascript kóðanum sínum svo við þurftum að setja inn jQuery inn)
+3. **[MathJax](https://www.mathjax.org/)**, til að sýna dæmin
+4. **[MathJS](https://mathjs.org/)**, til að reikna öll dæmi alveg rétt, og breyta dæmum í LaTeX streng (fyrir rendering)
+5. **[MathQuill](http://mathquill.com/)**, fyrir input, en við vildum gera HTML input sem gæti sett textann upp eins og við séum að skrifa á blaði
