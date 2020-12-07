@@ -3,9 +3,34 @@ class Formula {
 		this.daemi = ["a*x+b*x","a+b/c","a*b*x","x * y * -x / (x ^ a)","(a*b)(c*d)"]
 	}
 	svar(svor, scope, self=this) {
-        console.log("EKTA SVAR:", math.simplify(self.daemi,scope).toString().replace(' ', '').replace('* x', 'x').replace('*x','x'));
-        console.log(svor[0]);
-        return math.simplify(self.daemi,scope).toString().replace(' ', '').replace('* x', 'x').replace('*x','x').replace('* y','y').replace('*y','y') == svor[0].replace(' ', '').replace('* x', 'x').replace('*x','x').replace('* y','y').replace('*y','y');
+		let simplify = math.simplify(self.daemi,scope);
+		let ekta = simplify.toString();
+
+		const change = {
+        	' ':'',
+        	'*x': 'x',
+        	'*y': 'y',
+        };
+
+
+
+        Object.keys(change).forEach(function(key) {
+        	ekta = ekta.replaceAll(key, change[key]);
+        	svor[0] = svor[0].replaceAll(key, change[key]);
+        });
+
+       
+
+        
+
+        for(let i = 0; i < 100; i++) {
+        	let randomX = Math.random()*100000;
+        	let randomY = Math.random()*100000;
+        	if(simplify.evaluate({x:randomX,y:randomY}) != math.evaluate(svor[0], {x:randomX, y:randomY})) {
+        		return false;
+        	}
+        }
+        return true;
 	}
 
 	render(){
